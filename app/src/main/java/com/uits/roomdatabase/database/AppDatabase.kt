@@ -1,6 +1,5 @@
 package com.uits.roomdatabase.database
 
-import android.app.Application
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
@@ -8,10 +7,8 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.uits.roomdatabase.database.dao.ContactDAO
-import com.uits.roomdatabase.model.Contact
+import com.uits.roomdatabase.database.entities.Contact
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 
 @Database(entities = [Contact::class], version = 1, exportSchema = false)
@@ -56,6 +53,7 @@ abstract class AppDatabase : RoomDatabase() {
             // If you want to keep the data through app restarts,
             // comment out the following line.
             INSTANCE?.let { database ->
+
             }
         }
     }
