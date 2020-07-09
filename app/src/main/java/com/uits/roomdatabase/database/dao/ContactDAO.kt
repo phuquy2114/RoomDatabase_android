@@ -1,7 +1,8 @@
-package com.uits.roomdatabase.database
+package com.uits.roomdatabase.database.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.uits.roomdatabase.model.Contact
+import com.uits.roomdatabase.database.entities.Contact
 
 @Dao
 public interface ContactDAO {
@@ -15,7 +16,7 @@ public interface ContactDAO {
     fun delete(contact: Contact?)
 
     @Query("SELECT * FROM contact")
-    fun getContacts(): List<Contact?>?
+    fun getContacts(): LiveData<List<Contact>>
 
     @Query("SELECT * FROM contact WHERE phoneNumber = :number")
     fun getContactWithId(number: String?): Contact?
