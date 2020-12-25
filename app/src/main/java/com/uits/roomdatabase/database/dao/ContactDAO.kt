@@ -6,7 +6,7 @@ import com.uits.roomdatabase.database.entities.Contact
 
 @Dao
 public interface ContactDAO {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(vararg contacts: Contact?)
 
     @Update

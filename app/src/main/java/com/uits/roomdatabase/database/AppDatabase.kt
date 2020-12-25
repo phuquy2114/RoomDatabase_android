@@ -5,8 +5,9 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.uits.roomdatabase.database.dao.ContactDAO
-import com.uits.roomdatabase.model.Contact
-import android.content.Context
+import com.uits.roomdatabase.database.entities.Contact
+import kotlinx.coroutines.CoroutineScope
+
 
 @Database(entities = [Contact::class], version = 1, exportSchema = false)
 @TypeConverters(DateTypeConverter::class)
@@ -38,6 +39,21 @@ abstract class AppDatabase() : RoomDatabase() {
                     .build()
                 INSTANCE = instance
                 return instance
+            }
+        }
+    }
+
+    private class WordDatabaseCallback(private val scope: CoroutineScope) : RoomDatabase.Callback() {
+        /**
+         * Override the onOpen method to populate the database.
+         * For this sample, we clear the database every time it is created or opened.
+         */
+        override fun onOpen(db: SupportSQLiteDatabase) {
+            super.onOpen(db)
+            // If you want to keep the data through app restarts,
+            // comment out the following line.
+            INSTANCE?.let { database ->
+
             }
         }
     }

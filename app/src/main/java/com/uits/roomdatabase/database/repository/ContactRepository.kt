@@ -12,7 +12,7 @@ import com.uits.roomdatabase.database.entities.Contact
  * Created PHUQUY on 7/9/20.
  **/
 
-class ContactRepository(var contactDAO: ContactDAO) {
+class ContactRepository(private val contactDAO: ContactDAO) {
 
     // Room executes all queries on a separate thread.
     // Observed LiveData will notify the observer when the data has changed.

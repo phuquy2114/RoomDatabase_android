@@ -17,14 +17,14 @@ import kotlinx.coroutines.launch
  * Created PHUQUY on 7/8/20.
  **/
 class MainViewModel(context: Application) : AndroidViewModel(context) {
-    private val contactRepository : ContactRepository
+    private val contactRepository: ContactRepository
 
-    val allWords: LiveData<List<Contact>>
+    val allContacts: LiveData<List<Contact>>
 
     init {
-        val contactDao = AppDatabase.getDatabase(context).mContactDAO
+        val contactDao = AppDatabase.getDatabase(context, viewModelScope).mContactDAO
         contactRepository = ContactRepository(contactDao)
-        allWords = contactRepository.allContact
+        allContacts = contactRepository.allContact
     }
 
 
