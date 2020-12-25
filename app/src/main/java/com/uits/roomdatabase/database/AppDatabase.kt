@@ -1,9 +1,11 @@
 package com.uits.roomdatabase.database
 
+import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.uits.roomdatabase.database.dao.ContactDAO
 import com.uits.roomdatabase.database.entities.Contact
 import kotlinx.coroutines.CoroutineScope

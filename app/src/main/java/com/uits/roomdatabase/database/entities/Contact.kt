@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "contact")
-data class Contact {
+class Contact {
 
     @PrimaryKey
     @ColumnInfo(name = "phoneNumber")
