@@ -16,8 +16,10 @@ public interface ContactDAO {
     fun delete(contact: Contact?)
 
     @Query("SELECT * FROM contact")
+    // fun getContacts(): List<Contact>
     fun getContacts(): LiveData<List<Contact>>
 
     @Query("SELECT * FROM contact WHERE phoneNumber = :number")
-    fun getContactWithId(number: String?): Contact?
+    //fun getContactWithId(number: String?): Contact?
+    fun getContactWithId(number: String?): LiveData<Contact?>
 }

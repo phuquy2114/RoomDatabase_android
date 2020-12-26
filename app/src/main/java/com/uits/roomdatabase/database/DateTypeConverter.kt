@@ -13,4 +13,9 @@ class DateTypeConverter {
     fun convertLongToDate(time: Long): Date {
         return Date(time)
     }
+
+    @TypeConverter
+    fun toUUID(uuid: UUID) : String {
+        return uuid.toString()
+    }
 }

@@ -22,7 +22,7 @@ class MainViewModel(context: Application) : AndroidViewModel(context) {
     val allContacts: LiveData<List<Contact>>
 
     init {
-        val contactDao = AppDatabase.getDatabase(context, viewModelScope).mContactDAO
+        val contactDao = AppDatabase.getDatabase(context).mContactDAO
         contactRepository = ContactRepository(contactDao)
         allContacts = contactRepository.allContact
     }
